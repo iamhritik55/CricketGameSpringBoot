@@ -15,10 +15,10 @@ public class Utility {
     public Team toss(Team team1, Team team2) {
         int tossWinner = decision.nextInt(2);
         if (tossWinner == 0) {
-            System.out.println(team1.getName() + " has won the toss, Please enter 1 for batting or 2 for bowling");
+           // System.out.println(team1.getName() + " has won the toss, Please enter 1 for batting or 2 for bowling");
             return team1;
         } else {
-            System.out.println(team2.getName() + " has won the toss, Please enter 1 for batting or 2 for bowling");
+          //  System.out.println(team2.getName() + " has won the toss, Please enter 1 for batting or 2 for bowling");
             return team2;
         }
     }
