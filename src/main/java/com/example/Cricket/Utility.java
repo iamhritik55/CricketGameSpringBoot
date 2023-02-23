@@ -25,19 +25,19 @@ public class Utility {
 
     public void matching(Team team , Team team2 , int target) {
         int wickets = 0;
-        int j=0;
+        int overs=0;
         int currentPlayerScore=0;
         int fours=0;
         int six=0;
-        while(j<10) {
+        while(overs<10) {
             //            For debugging
             //            team.display();
             //            team2.display();
 
-            for (int i = 0; i < 6; i++)
+            for (int ballNumber = 0; ballNumber < 6; ballNumber++)
             {
                 List<Player> bowlingPlayers = team2.getPlayers();
-                Player bowler = bowlingPlayers.get(4-(j%5));
+                Player bowler = bowlingPlayers.get(4-(overs%5));
                 bowler.setTotalBallsDelivered(bowler.getTotalBallsDelivered() + 1);
                 // System.out.println(bowler.getName()+" ballDelivered "+bowler.getTotalBallsDelivered()+"\n");
                 int ballResult = decision.nextInt(7) + 1;
@@ -63,7 +63,7 @@ public class Utility {
                     six=0;
                     bowler.setBowlingWickets(bowler.getBowlingWickets()+1);
                     // System.out.println(bowler.getName()+" wicket "+bowler.getBowlingWickets()+"\n");
-                    bowlingPlayers.set(4-(j%5),bowler);
+                    bowlingPlayers.set(4-(overs%5),bowler);
                     team2.setPlayers(bowlingPlayers);
 
                     if (wickets == 5) {
@@ -71,7 +71,7 @@ public class Utility {
                     }
                     continue;
                 }
-                bowlingPlayers.set(4-(j%5),bowler);
+                bowlingPlayers.set(4-(overs%5),bowler);
                 team2.setPlayers(bowlingPlayers);
 
                 team.setScore(team.getScore() + ballResult);
@@ -88,7 +88,7 @@ public class Utility {
                     return;
                 }
             }
-            j++;
+            overs++;
         }
         if(wickets<5)
         {
